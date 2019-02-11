@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -14,6 +15,7 @@ import { CityListComponent } from './city-list/city-list.component';
    ],
    imports: [
       BrowserModule,
+      AppRoutingModule,
       BrowserAnimationsModule,
       MatAutocompleteModule,
       MatInputModule,

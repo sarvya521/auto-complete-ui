@@ -1,18 +1,1 @@
-<form class = "tp-form">
-
-   <!-- ADD AN INPUT BOX OF TYPE TEXT AND LINK IT TO THE AUTO COMPLETE PANEL. -->
-   <mat-form-field class = "tp-full-width">
-      <input type = "text" 
-         placeholder = "Search city ..."  
-         matInput 
-         [formControl] = "searchCity" 
-         [matAutocomplete] = "auto">
-
-      <!-- CREATE AUTO COMPLETE PANEL WITH OPTIONS. -->
-      <mat-autocomplete #auto = "matAutocomplete">
-         <mat-option *ngFor = "let city of cities" [value] = "city.name" (click)="getSelectedCity(city)">
-            {{city.name}}
-         </mat-option>
-      </mat-autocomplete>
-   </mat-form-field>
- </form>
+<app-city-list></app-city-list>

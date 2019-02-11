@@ -5,8 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { CityListComponent } from '../city-list/city-list.component';
 
 const routes: Routes = [
-  { path:  '', pathMatch:  'full', redirectTo:  'list'},
-  { path: 'list', component: CityListComponent}
+  { path:  '', pathMatch:  'full', redirectTo:  '/city-list'},
+  { path: 'city-list', component: CityListComponent}
 ];
 
 @NgModule({

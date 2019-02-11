@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment';
+import { environment } from '../../../environments/environment';
 
 import { Observable } from  "rxjs";
 import { map } from 'rxjs/operators';
@@ -8,7 +8,7 @@ import { debounceTime } from 'rxjs/internal/operators/debounceTime';
 import { HttpClient } from '@angular/common/http';
 import { HttpParams} from  "@angular/common/http";
 import { HttpHeaders } from  "@angular/common/http";
-import { City } from './city';
+import { City } from '../model/city';
 
 const API_URL = environment.apiUrl;
 const MAX_RESULT = '3';
@@ -16,7 +16,7 @@ const MAX_RESULT = '3';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class CityService {
 
   constructor(private httpClient: HttpClient) {}
 
@@ -30,7 +30,7 @@ export class ApiService {
                     map(
                       (data: any) => {
                           return (
-                              data.length != 0 ? data as any[] : [{"City": "No Record Found"} as any]
+                              data.length != 0 ? data as any[] : [{"name": "No Record Found"} as any]
                           );
                       })
                   );
