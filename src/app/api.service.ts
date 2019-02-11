@@ -11,6 +11,7 @@ import { HttpHeaders } from  "@angular/common/http";
 import { City } from './city';
 
 const API_URL = environment.apiUrl;
+const MAX_RESULT = '3';
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +21,10 @@ export class ApiService {
   constructor(private httpClient: HttpClient) {}
 
   public getCities(key: string): Observable<City[]>{
-    const  params = new  HttpParams().set('key', key);
+    const  params = new  HttpParams().set('start', key).set('atmost', MAX_RESULT);
     const  headers = new  HttpHeaders().set("X-CustomHttpHeader", "CUSTOM_VALUE");
     return this.httpClient
-                  .get<City[]>(`${API_URL}/cities`, {headers: headers, params: params})
+                  .get<City[]>(`${API_URL}/city`, {headers: headers, params: params})
                   .pipe(
                     debounceTime(500), 
                     map(
@@ -32,8 +33,7 @@ export class ApiService {
                               data.length != 0 ? data as any[] : [{"City": "No Record Found"} as any]
                           );
                       })
-                  )
-                  .catch(this.handleError);
+                  );
   }
 
   private handleError (error: Response | any) {

@@ -6,14 +6,14 @@ import { ApiService} from "./api.service";
 @Component({
    selector: 'app-root',
    templateUrl: './app.component.html',
-   styleUrls: ['./app.component.css']
+   styleUrls: ['./app.component.css'],
+   providers: [ApiService]
 })
 export class AppComponent {
    title = 'auto-complete-ui';
    searchCity :  FormControl = new FormControl();
-   states = <any>[];
    cities = <any>[];
-   constructor(private apiService: ApiService) { this.loadStates(); }
+   constructor(private apiService: ApiService) { }
 
    ngOnInit () {
       this.searchCity.valueChanges.subscribe(
@@ -28,7 +28,7 @@ export class AppComponent {
    }
    
    //build list of states as map of key-value pairs
-   loadStates() {
+   /*loadStates() {
       var allStates = 'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware,\
          Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana,\
          Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana,\
@@ -42,5 +42,5 @@ export class AppComponent {
             display: state
          };
       });
-   }
+   }*/
 }
