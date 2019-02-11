@@ -1,21 +1,3 @@
-<!--form class = "tp-form">
-  <mat-form-field class = "tp-full-width">
-     <input type = "text" 
-        placeholder = "US State" 
-        aria-label = "Number" 
-        matInput 
-        [formControl] = "myControl" 
-        [matAutocomplete] = "auto">
-     <mat-autocomplete #auto = "matAutocomplete">
-        <mat-option *ngFor = "let state of states" [value] = "state.value">
-           {{state.display}}
-        </mat-option>
-     </mat-autocomplete>
-  </mat-form-field>
-</form-->
-
-<hr>
-
 <form class = "tp-form">
 
    <!-- ADD AN INPUT BOX OF TYPE TEXT AND LINK IT TO THE AUTO COMPLETE PANEL. -->
@@ -28,7 +10,7 @@
 
       <!-- CREATE AUTO COMPLETE PANEL WITH OPTIONS. -->
       <mat-autocomplete #auto = "matAutocomplete">
-         <mat-option *ngFor = "let city of cities" [value] = "city.name">
+         <mat-option *ngFor = "let city of cities" [value] = "city.name" (click)="getSelectedCity(city)">
             {{city.name}}
          </mat-option>
       </mat-autocomplete>
